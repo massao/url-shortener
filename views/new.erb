@@ -1,0 +1,14 @@
+<div class="form">
+	<form action="/new" method="post">
+		<label for="url">URL: </label>
+		<input type="url" name="url" id="url" placeholder="http://www.example.com" />
+		<input type="submit" id="send">
+	</form>
+</div>
+
+<h2>Link Adicionado</h2>
+<p>
+	<a href="http://localhost:4567/<%= @url.key %>">
+		http://localhost:4567/<%= @url.key %>
+	</a>
+</p>
