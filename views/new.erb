@@ -8,7 +8,7 @@
 
 <h2>Link Adicionado</h2>
 <p>
-	<a href="http://localhost:4567/<%= @url.key %>">
-		http://localhost:4567/<%= @url.key %>
+	<a href="http://<%= request.host_with_port %>/<%= @url.key %>">
+		http://<%= request.host_with_port %>/<%= @url.key %>
 	</a>
 </p>

@@ -21,8 +21,8 @@
 				<%= u.url %>
 			</td>
 			<td class="shorturl">
-				<a href="http://localhost:4567/<%= u.key %>">
-					http://localhost:4567/<%= u.key %>
+				<a href="http://<%= request.host_with_port %>/<%= u.key %>">
+					http://<%= request.host_with_port %>/<%= u.key %>
 				</a>
 			</td>
 			<td class="count">
