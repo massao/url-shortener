@@ -1,20 +1,36 @@
 <% if @urls.length != 0 %>
+<h2>Links</h2>
 <table class="links">
-	<% @urls.each do |u| %>
-	<tr>
-		<td class="url">
-			<%= u.url %>
-		</td>
-		<td class="shorturl">
-			<a href="http://localhost:4567/<%= u.key %>">
-				http://localhost:4567/<%= u.key %>
-			</a>
-		</td>
-		<td class="count">
-			<%= u.count %>
-		</td>
-	</tr>
-	<% end %>
+	<thead>
+		<tr>
+			<th class="url">
+				URL
+			</th>
+			<th class="shorturl">
+				Shortened URL
+			</th>
+			<th class="count">
+				Clicks Count
+			</th>
+		</tr>
+	</thead>
+	<tbody>
+		<% @urls.each do |u| %>
+		<tr>
+			<td class="url">
+				<%= u.url %>
+			</td>
+			<td class="shorturl">
+				<a href="http://localhost:4567/<%= u.key %>">
+					http://localhost:4567/<%= u.key %>
+				</a>
+			</td>
+			<td class="count">
+				<%= u.count %>
+			</td>
+		</tr>
+		<% end %>
+	</tbody>
 </table>
 <% else %>
 <h2>No links yet</h2>

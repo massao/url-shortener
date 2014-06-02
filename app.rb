@@ -5,7 +5,7 @@ ActiveRecord::Base.logger = Logger.new(File.open('db.log', 'w'))
 ActiveRecord::Base.establish_connection(
 	:adapter => 'sqlite3',
 	:database => 'urls.db'
-)
+	)
 
 ActiveRecord::Schema.define do
 	unless ActiveRecord::Base.connection.tables.include? 'urls'
@@ -31,18 +31,28 @@ get '/links' do
 end
 
 post '/new' do
+	ok = false
 	@url = Url.new
 	@url.url = params[:url]
 	@url.count = 0
-	@url.key = (0...8).map { (65 + rand(26)).chr }.join
-	if @url.valid?
-		@url.save
+	range = [*'0'..'9', *'a'..'z', *'A'..'Z']
+	@url.key = (0...8).map { |n| range.sample }.join
+	while ok == false do
+		if @url.valid?
+			ok = true;
+		else
+			@url.key = (0...8).map { |n| range.sample }.join
+		end
 	end
+	@url.save
 	erb :new, :layout => :layout
 end
 
 
 get '/:id' do
-	@key = params[:id];
-	
+	key = params[:id];
+	url = Url.where(key: key).take
+	url.count = url.count+1
+	url.save
+	redirect to(url.url);
 end

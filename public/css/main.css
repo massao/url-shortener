@@ -84,3 +84,27 @@ header a:hover {
 	color: #f1f1f1;
 	background-color: #0074D9;
 }
+
+table {
+	border-collapse: collapse; 
+	width: 100%;
+}
+table th,
+table td {
+	text-align: left;
+	height: 50px;
+	vertical-align: middle;
+}
+table th {
+	border-bottom: 2px solid #CCCCCC;
+}
+table td {
+	border-bottom: 1px solid #CCCCCC;
+}
+table .url,
+table .shorturl {
+	width: 45%;
+}
+table .count {
+	width: 10%;
+}
