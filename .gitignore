@@ -1,3 +1,10 @@
 db.log
 *.db
 Gemfile.lock
+
+## Environment normalisation:
+/.bundle/
+/lib/bundler/man/
+
+*.gem
+*.rbc
